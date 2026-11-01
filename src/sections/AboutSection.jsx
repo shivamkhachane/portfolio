@@ -19,7 +19,7 @@ export default function AboutSection() {
             <p className="body-copy reveal-up">At Newgen Software Technologies, I develop and maintain enterprise BFSI applications, including a retail loan procedure system. My work spans backend development, production support, and collaboration with teams to keep business-critical workflows reliable.</p>
             <p className="body-copy reveal-up">I bring a foundation in Java, relational databases, and web development, with a practical interest in solving problems clearly and carefully.</p>
             <a className="text-action magnetic" href={portfolio.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <ArrowUpRight size={16} /></a>
-            <div className="about-stats" aria-label="Career and education highlights">
+            <div className="about-stats" role="group" aria-label="Career and education highlights">
               {portfolio.stats.map((stat, index) => {
                 const Icon = statIcons[index];
                 return (

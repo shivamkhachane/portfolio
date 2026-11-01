@@ -12,8 +12,8 @@ export default function usePortfolioMotion(scopeRef, introComplete) {
     const media = gsap.matchMedia();
     media.add('(prefers-reduced-motion: no-preference)', () => {
       gsap.fromTo('.hero-copy > *',
-        { autoAlpha: 0, y: 22 },
-        { autoAlpha: 1, y: 0, duration: 0.72, stagger: 0.09, ease: 'power2.out' },
+        { y: 22 },
+        { y: 0, duration: 0.72, stagger: 0.09, ease: 'power2.out' },
       );
       gsap.fromTo('.hero-portrait .portrait-frame',
         { clipPath: 'inset(100% 0 0 0)' },
@@ -22,9 +22,8 @@ export default function usePortfolioMotion(scopeRef, introComplete) {
 
       gsap.utils.toArray('.reveal-up', root).forEach((element) => {
         gsap.fromTo(element,
-          { autoAlpha: 0, y: 26 },
+          { y: 26 },
           {
-            autoAlpha: 1,
             y: 0,
             duration: 0.7,
             ease: 'power2.out',
