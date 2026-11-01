@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <section className="about-section page-section" id="about" aria-labelledby="about-title">
       <div className="content-width">
-        <SectionHeading eyebrow="About me" title="Built on curiosity.\nGrounded in engineering." id="about-title" />
+        <SectionHeading eyebrow="About me" title={<>Built on curiosity.<br />Grounded in engineering.</>} id="about-title" />
         <div className="about-grid">
           <figure className="about-photo reveal-image">
             <img src={portfolio.aboutPortrait} alt="Shivam Khachane by a riverside" width="640" height="1318" loading="lazy" />
