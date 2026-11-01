@@ -14,8 +14,8 @@ export const portfolio = {
   whatsapp: 'https://wa.me/917507883774',
   linkedin: 'https://www.linkedin.com/in/shivam-khachane-a651b9220/',
   github: 'https://github.com/shivamkhachane',
-  portrait: `${assetBase}portrait.jpg`,
-  aboutPortrait: `${assetBase}about.jpg`,
+  portrait: `${assetBase}portrait.webp`,
+  aboutPortrait: `${assetBase}about.webp`,
   resume: `${assetBase}Shivam_Khachane_Resume.pdf`,
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/shivamkhachane' },

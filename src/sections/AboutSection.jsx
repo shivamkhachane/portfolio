@@ -11,7 +11,7 @@ export default function AboutSection() {
         <SectionHeading eyebrow="About me" title="Built on curiosity.\nGrounded in engineering." id="about-title" />
         <div className="about-grid">
           <figure className="about-photo reveal-image">
-            <img src={portfolio.aboutPortrait} alt="Shivam Khachane by a riverside" width="640" height="960" loading="lazy" />
+            <img src={portfolio.aboutPortrait} alt="Shivam Khachane by a riverside" width="640" height="1318" loading="lazy" />
             <figcaption><span className="photo-marker" /> Based in {portfolio.location}</figcaption>
           </figure>
           <div className="about-copy">

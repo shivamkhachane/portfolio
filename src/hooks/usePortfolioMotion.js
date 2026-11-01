@@ -1,16 +1,30 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { useEffect } from 'react';
 
 export default function usePortfolioMotion(scopeRef, introComplete) {
-  useGSAP(() => {
-    if (!introComplete || !scopeRef.current) return undefined;
+  useEffect(() => {
+    if (!introComplete || !scopeRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
 
-    const root = scopeRef.current;
-    const media = gsap.matchMedia();
-    media.add('(prefers-reduced-motion: no-preference)', () => {
+    let cancelled = false;
+    let context;
+    let media;
+    let idleHandle;
+    let fallbackHandle;
+
+    const initialize = async () => {
+      const [gsapModule, scrollTriggerModule] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (cancelled || !scopeRef.current) return;
+
+      const gsap = gsapModule.gsap ?? gsapModule.default;
+      const { ScrollTrigger } = scrollTriggerModule;
+      gsap.registerPlugin(ScrollTrigger);
+      const root = scopeRef.current;
+
+      context = gsap.context(() => {
+        media = gsap.matchMedia();
+        media.add('(prefers-reduced-motion: no-preference)', () => {
       gsap.fromTo('.hero-copy > *',
         { y: 22 },
         { y: 0, duration: 0.72, stagger: 0.09, ease: 'power2.out' },
@@ -20,15 +34,17 @@ export default function usePortfolioMotion(scopeRef, introComplete) {
         { clipPath: 'inset(0% 0 0 0)', duration: 1.05, ease: 'power3.inOut', delay: 0.16 },
       );
 
-      gsap.utils.toArray('.reveal-up', root).forEach((element) => {
-        gsap.fromTo(element,
+      gsap.utils.toArray('.page-section', root).forEach((section) => {
+        const elements = gsap.utils.toArray('.reveal-up', section);
+        if (elements.length === 0) return;
+        gsap.fromTo(elements,
           { y: 26 },
           {
             y: 0,
             duration: 0.7,
+            stagger: 0.07,
             ease: 'power2.out',
-            delay: Number(element.style.getPropertyValue('--stagger-index') || 0) * 0.08,
-            scrollTrigger: { trigger: element, start: 'top 88%', once: true },
+            scrollTrigger: { trigger: section, start: 'top 88%', once: true },
           },
         );
       });
@@ -51,24 +67,27 @@ export default function usePortfolioMotion(scopeRef, introComplete) {
         });
       }
 
-      root.querySelectorAll('[data-counter]').forEach((element) => {
+      const counters = root.querySelectorAll('[data-counter]');
+      if (counters.length > 0) {
         ScrollTrigger.create({
-          trigger: element,
+          trigger: root.querySelector('.about-stats'),
           start: 'top 90%',
           once: true,
           onEnter: () => {
-            const counter = { value: 0 };
-            const target = Number(element.dataset.value);
-            const decimals = Number(element.dataset.decimals || 0);
-            gsap.to(counter, {
-              value: target,
-              duration: 1.25,
-              ease: 'power2.out',
-              onUpdate: () => { element.textContent = counter.value.toFixed(decimals); },
+            counters.forEach((element) => {
+              const counter = { value: 0 };
+              const target = Number(element.dataset.value);
+              const decimals = Number(element.dataset.decimals || 0);
+              gsap.to(counter, {
+                value: target,
+                duration: 1.25,
+                ease: 'power2.out',
+                onUpdate: () => { element.textContent = counter.value.toFixed(decimals); },
+              });
             });
           },
         });
-      });
+      }
 
       const cleanups = [];
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -114,8 +133,21 @@ export default function usePortfolioMotion(scopeRef, introComplete) {
         window.cancelAnimationFrame(refreshFrame);
         cleanups.forEach((cleanup) => cleanup());
       };
-    });
+        });
+      }, root);
+    };
 
-    return () => media.revert();
-  }, { scope: scopeRef, dependencies: [introComplete], revertOnUpdate: true });
+    const schedule = window.requestIdleCallback
+      ? () => { idleHandle = window.requestIdleCallback(() => initialize().catch(() => undefined), { timeout: 1500 }); }
+      : () => { fallbackHandle = window.setTimeout(() => initialize().catch(() => undefined), 0); };
+    schedule();
+
+    return () => {
+      cancelled = true;
+      if (idleHandle !== undefined) window.cancelIdleCallback(idleHandle);
+      if (fallbackHandle !== undefined) window.clearTimeout(fallbackHandle);
+      media?.revert();
+      context?.revert();
+    };
+  }, [scopeRef, introComplete]);
 }
