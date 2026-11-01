@@ -1,128 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Portfolio Website</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
-
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
-
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Shivam Khachane is an engineering student and front-end developer in Pune, India.">
+        <title>Shivam Khachane | Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </head>
-        <body>
-            <div class="hero">
-                <nav>
-                    <h2 class="logo">Portfo<span>lio</span>
-                    </h2>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About me</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="skill.html">Skills</a></li>
-                        <li><a href="contact.html">Contacts</a></li>
-
-                    </ul>
-                    <a href="https://www.linkedin.com/in/shivam-khachane-a651b9220/" class="btn">Subscribe</a>
-                </nav>
-                <div class="content">
-                    <h4>Hello, my name is</h4>
-                    <h1>Shivam <span>Khachane</span></h1>
-                    <h3>I'am a 3'rd year Engineering Student.</h3>
-                    <div class="newsletter">
-                        <form>
-                            <input type="email" name="email" id="mail" placeholder="Enter Your Email">
-                            <a href="mailto:shivamkhachane@gmail.com"><button type="button">Let's Start</button></a>
-                        </form>
-                    </div>
+    <body>
+        <header class="hero">
+            <nav aria-label="Main navigation">
+                <a class="logo" href="index.html">Shivam<span>.</span></a>
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="skill.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="https://www.linkedin.com/in/shivam-khachane-a651b9220/" class="btn">Let's connect <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </nav>
+            <div class="content">
+                <p class="eyebrow">Engineering student / Front-end developer</p>
+                <h1>Shivam<br><span>Khachane</span></h1>
+                <h2>I build thoughtful digital experiences, one line of code at a time.</h2>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="mailto:shivamkhachane@gmail.com">Start a conversation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="text-link" href="#about">Discover my story <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
                 </div>
+                <p class="hero-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Pune, India</p>
             </div>
-            <section class="about">
+        </header>
+
+        <main>
+            <section class="about" id="about">
                 <div class="main">
-                    <img src="4.jpg">
+                    <img src="4.jpg" alt="Shivam Khachane outdoors in Pune" loading="lazy">
                     <div class="about-text">
-                        <h2>About <span>Me</span></h2>
-                        <h5>Student <span>& Web Developer</span></h5>
-                        <p>I am a student studing at Smt. Kashibai Navale College of Engineering, Pune.
-                        But, besides I am a front-end developer. I can provide clean code and pixel perfect
-                        design. I also make the website more & more interactive with web animations.
-                        I also make the website more & more interactive with web animations.
-                        A responsive design makes your website accessible to all users, regardless of their
-                        device.
-                        </p>
-                        <a href="https://wa.me/+917507883774"><button type="button">Let's Talk</button></a>
+                        <p class="section-kicker">A little about me</p>
+                        <h2>Curious by nature.<br>Developer by choice.</h2>
+                        <h3>Student <span>&amp; Web Developer</span></h3>
+                        <p>I'm studying Electronics and Telecommunication Engineering at Smt. Kashibai Navale College of Engineering in Pune. Alongside my degree, I build responsive, interactive web experiences with a focus on clean code and thoughtful details.</p>
+                        <a class="button button-dark" href="https://wa.me/+917507883774">Let's talk <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </section>
 
-            <div class="service">
+            <section class="service" aria-labelledby="qualifications-title">
                 <div class="title">
-                    <h2>My Qualifications</h2>
+                    <p class="section-kicker">The journey so far</p>
+                    <h2 id="qualifications-title">My education</h2>
                 </div>
                 <div class="box">
-                    <div class="card">
-                        <i class="fa-solid fa-school"></i>
-                        <h5>Schooling</h5>
+                    <article class="card">
+                        <div class="card-topline"><span>01</span><i class="fa-solid fa-school" aria-hidden="true"></i></div>
+                        <h3>Schooling</h3>
                         <div class="pra">
-                            <p>Completed my Schooling from Alphonsa English High School,
-                                Aurangabad by securing 93.6% in SSC Examination.
-                            </p>
-                            <p style="text-align: center;">
-                                <a href="http://alphonsahighschool.org/" class="button">Read More</a>
-                            </p>
+                            <p>Completed my schooling at Alphonsa English High School, Aurangabad, securing 93.6% in the SSC examination.</p>
+                            <a href="http://alphonsahighschool.org/" class="card-link">Visit school <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                    </div>
-
-
-                    <div class="card">
-                        <i class="fa-solid fa-school"></i>
-                        <h5>Junior College</h5>
+                    </article>
+                    <article class="card">
+                        <div class="card-topline"><span>02</span><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+                        <h3>Junior College</h3>
                         <div class="pra">
-                            <p>Completed My Junior College Education at 
-                                Bhimashankar Padalkar Junior College, Georai
-                                by securing 75% in HSC Examination.
-                            </p>
-                            <p style="text-align: center;">
-                                <a href="https://www.facebook.com/people/Bhimashankar-Padalkar-junior-College-gevrai-Aurangabad/100071646106861/" class="button">Read More</a>
-                            </p>
+                            <p>Completed junior college at Bhimashankar Padalkar Junior College, Georai, with 75% in the HSC examination.</p>
+                            <a href="https://www.facebook.com/people/Bhimashankar-Padalkar-junior-College-gevrai-Aurangabad/100071646106861/" class="card-link">Visit college <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                    </div>
-
-                    <div class="card">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <h5>College</h5>
+                    </article>
+                    <article class="card">
+                        <div class="card-topline"><span>03</span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+                        <h3>Engineering</h3>
                         <div class="pra">
-                            <p>Currently I am Pursuing a B.E.(E&TC) Degree at 
-                                Smt. Kashibai Navale College Of Engineering, Pune. 
-                            </p>
-                            <p style="text-align: center;">
-                                <a href="http://cms.sinhgad.edu/sinhgad_engineering_institutes/skncoe_vadgaon/institute_details.aspx" class="button">Read More</a>
-                            </p>
+                            <p>Currently pursuing a B.E. in Electronics and Telecommunication at Smt. Kashibai Navale College of Engineering, Pune.</p>
+                            <a href="http://cms.sinhgad.edu/sinhgad_engineering_institutes/skncoe_vadgaon/institute_details.aspx" class="card-link">Visit college <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                    </div>
-
-
-
+                    </article>
                 </div>
-            </div>
+            </section>
 
-            <div class="contact-me">
-                <p>Let Me get you a Beautiful Website.</p>
-                <a class="button-two" href="https://www.linkedin.com/in/shivam-khachane-a651b9220/">Hire Me</a>
-            </div>
+            <section class="contact-me">
+                <p class="section-kicker">Have a project in mind?</p>
+                <h2>Let's make something<br>worth remembering.</h2>
+                <a class="button button-primary" href="https://www.linkedin.com/in/shivam-khachane-a651b9220/">Get in touch <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </section>
+        </main>
 
-            <footer>
-                <p>Shivam Khachane</p>
-                <p>Contact Below to Connect With....</p>
-            <div class="social">
-                <a href="https://github.com/shivamkhachane"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.facebook.com/shivam.khachane"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/shiv_khachane?igshid=YjM2YjNmNDA="><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/shivam-khachane-a651b9220/"><i class="fa-brands fa-linkedin-in"></i></a>
+        <footer>
+            <div class="footer-copy">
+                <a class="logo" href="index.html">Shivam<span>.</span></a>
+                <p>Building a little better, every day.</p>
             </div>
-            <p class="end">CopyRight By Shivam Khachane</p>
-            </footer>
-        </body>    
+            <div class="social" aria-label="Social links">
+                <a href="https://github.com/shivamkhachane" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/shivam.khachane" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://instagram.com/shiv_khachane?igshid=YjM2YjNmNDA=" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/shivam-khachane-a651b9220/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+            <p class="end">Copyright Shivam Khachane</p>
+        </footer>
+    </body>
 </html>
